@@ -587,7 +587,7 @@ body {
 /*---BANNER----*/
 .banner {
   width: 100%;
-  padding: 350px 0;
+  padding: 400px 0;
   position: relative;
   background: url(../img/banner1.png) center/cover no-repeat;
 }
