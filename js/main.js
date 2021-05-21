@@ -1,56 +1,30 @@
-
-//Slider
-$(document).ready(function(){
-	$('.slider__content').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: false,
-    infinite: false,
-    autoplaySpeed: 3000,
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-		responsive:[
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          dots: false
-        }
-      },
-      {
-        breakpoint: 950,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 550,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-		]
+// Меню бургер
+$(document).ready(function() {
+	$('.nav__icon').click(function(event) {
+		$('.nav__icon,.nav__body').toggleClass('active');
+		$('body').toggleClass('lock');
 	});
 });
 
-
-
-// Меню бургер
-$(document).ready(function() {
-  $('.nav__icon').click(function(event) {
-    $('.nav__icon,.header__info').toggleClass('active');
-    $('body').toggleClass('lock');
-  });
-});
-
 $('.nav__body').click(function(){
-    $('.nav__icon, .header__info').removeClass('active');
+    $('.nav__icon, .nav__body').removeClass('active');
     $('body').removeClass('lock');
 });
 
+
+
+
+//Спойлеры
+
+$(document).ready(function() {
+	$('.block__title').click(function(event) {
+		if($('.block').hasClass('one')){
+			$('.block__title').not($(this)).removeClass('active');
+			$('.block__content').not($(this).next()).slideUp(300);
+		}
+		$(this).toggleClass('active').next().slideToggle(300);
+	});
+});
 
 
 
@@ -72,28 +46,25 @@ for(let anchor of anchors) {
   })
 }
 
-//button to top
+
+//banner__slider
 $(document).ready(function(){
-  $(window).scroll(function(){
-      if($(window).scrollTop()>300){
-    $('.scroll-top').fadeIn(250);
-}
-else{
-    $('.scroll-top').fadeOut(250);
-}
-  });
-  $('.scroll-top').click(function(){
-$('html,body').animate(
-    {scrollTop:0},400
-);
-  });
+	$('.slider__content').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    speed:350,
+    infinite: false,
+    autoplaySpeed: 5000,
+    nextArrow: $(".next"),
+    prevArrow: $(".prev"),
+	
+	});
 });
 
 
 
 
-
-
-
-
-
+//Дата в форме
+let today = new Date().toISOString().substr(0, 10);
+document.querySelector("#date").value = today;
