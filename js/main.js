@@ -58,7 +58,6 @@ $(document).ready(function(){
     autoplaySpeed: 5000,
     nextArrow: $(".next"),
     prevArrow: $(".prev"),
-	
 	});
 });
 
@@ -93,6 +92,20 @@ function onTabClick(item) {
 document.querySelector('.tabs__nav-btn').click();
 
 
+//case-study__slider
+$(document).ready(function(){
+	$('.case-study__slider-content').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows:false,
+    dots:true,
+    autoplay: false,
+    speed:350,
+    infinite: false,
+    autoplaySpeed: 5000,
+	
+	});
+});
 
 
 //Дата в форме
